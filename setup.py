@@ -9,6 +9,7 @@ import os
 # these are defaults for common environment variables
 # (if you are stuck, a good guide is in ${IDL_DIR}/bin/idl)
 idl_release_current = '7.0'         #XXX: see ${IDL_DIR}/version.txt
+idl_version = '706'                 #XXX: kludge for no symlinks on windows :)
 ###############################################################################
 idl_dir_nux = '/usr/local/itt/idl'  #HINT: relnotes.html lives there
 idl_incdir_nux = '/external/include' # HINT: idl_export.h lives there
@@ -19,10 +20,10 @@ idl_dir_mac = '/Applications/itt/idl' # or 'opt/local/itt/idl'
 idl_incdir_mac = '/external/include'
 idl_libdir_mac = '/bin/bin.darwin.i386'
 x11_libdir_mac = '/usr/X11R6/lib'
-#FIXME: figure out the defaults for win
-idl_dir_win = 'C:\Program Files\itt\idl'
+# Windows
+idl_dir_win = 'C:\Program Files\ITT\IDL'+idl_version #XXX: kludge for windows
 idl_incdir_win = '\external\include'
-idl_libdir_win = '\bin'
+idl_libdir_win = '\bin\bin.x86'
 ###############################################################################
 
 # check if easy_install is available
@@ -37,7 +38,7 @@ except ImportError:
 # build the 'setup' call
 setup_code = """
 setup(name='pyIDL',
-      version='0.7c3',
+      version='0.7',
       description='Python bindings for ITT IDL',
       author = 'Mike McKerns',
       author_email = 'mmckerns@caltech.edu',
@@ -104,7 +105,11 @@ if platform[:3] == 'win':
     if not idl_incdir_found:
         idl_incdir = idl_dir + idl_incdir_win
 
-    IDLLIBS = ['idl32']
+    if float(idl_release) >= float('7.0'):
+        IDLLIBS = ['idl'] #XXX: more?  see ${IDL_DIR}\external\callable\makefile
+    else: #?.? to 6.?
+        IDLLIBS = ['idl32']
+
     module1 = Extension('_pyIDL',
                        ['module\\bindings.cc',
                         'module\_pyIDLmodule.cc',

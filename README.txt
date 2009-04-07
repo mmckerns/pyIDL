@@ -5,7 +5,7 @@ pyIDL
 # Installation
 
 unzup and unpack the gzipped tar archive
-$ tar -xvzf pyIDL-0.7c3.tgz
+$ tar -xvzf pyIDL-0.7.tgz
 
 set environment variables
 (paths will depend on IDL installation and platform)
@@ -125,7 +125,7 @@ use IDL function/procedure directly from python
 
 # Versions
 
-0.7c3: 03/16/09
+0.7: 04/07/09
  added support for idl_7.0
  installs with setuptools, if available
  links to easy_install build of numarray
