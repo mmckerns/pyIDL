@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # 
 # Michael McKerns
-# mmckerns@caltech.edu 
+# mmckerns@caltech.edu
 from rsiidl import __doc__ as idldoc
 __doc__ = idldoc
 

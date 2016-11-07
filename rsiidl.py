@@ -47,7 +47,7 @@ publication, we ask that you acknowledge use of the software by citing the
 following paper in your publication:
 
     "pyIDL: binding IDL to python", Michael McKerns, unpublished;
-     http://www.its.caltech.edu/~mmckerns/software.html
+     http://www.cacr.caltech.edu/~mmckerns/software.html
 
 """
 
@@ -709,7 +709,7 @@ private methods:
 
     def doc(self):
         print self.__doc__
-        print __license__[-392:] # print copyright and reference
+        print __license__[-391:] # print copyright and reference
         return
 
 ### END 'PUBLIC' METHODS ###

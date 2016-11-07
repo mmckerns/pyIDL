@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # 
 # Michael McKerns
-# mmckerns@caltech.edu 
+# mmckerns@caltech.edu
 from sys import platform
 import os
 
@@ -41,8 +41,8 @@ setup(name='pyIDL',
       version='0.7',
       description='Python bindings for ITT IDL',
       author = 'Mike McKerns',
-      author_email = 'mmckerns@caltech.edu',
-      url = 'http://www.its.caltech.edu/~mmckerns/software.html',
+      author_email = 'mmckerns@uqfoundation.org',
+      url = 'http://www.cacr.caltech.edu/~mmckerns/software.html',
       packages=['pyIDL'],
       package_dir={'pyIDL':''},
       ext_modules=[module1],
